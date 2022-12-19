@@ -18,7 +18,6 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 @EnableWebSecurity
 @Configuration
@@ -49,10 +48,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         .antMatchers(HttpMethod.GET, "/users/new").permitAll()
                         .antMatchers("/users/index").permitAll()
                 .mvcMatchers(HttpMethod.GET,"/users/signIn").permitAll()
-                        .mvcMatchers(HttpMethod.POST,"/users/signIn").permitAll()
-                .mvcMatchers(HttpMethod.POST,"/amenities/find").authenticated())
+                .mvcMatchers(HttpMethod.POST,"/users/signIn").permitAll())
                 .authorizeRequests()
-                .anyRequest().permitAll()
+                .anyRequest().authenticated()
                 .and()
                 .httpBasic()
                 .and()
