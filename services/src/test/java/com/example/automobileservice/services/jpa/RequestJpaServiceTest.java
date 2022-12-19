@@ -56,7 +56,6 @@ class RequestJpaServiceTest {
 
         when(userMapper.mapDtoToEntity(userDto)).thenReturn(user);
         when(repository.findByUser(user)).thenReturn(request);
-        when(requestMapper.mapToDto(request)).thenReturn(requestDto);
 
         RequestDto result = requestJpaService.findRequestByUser(userDto);
 
