@@ -25,6 +25,11 @@ public class UserJpaService extends AbstractJpaService<UserDto, UserEntity, Long
     }
 
     @Override
+    public boolean existsByLogin(String login) {
+        return repository.existsByLogin(login);
+    }
+
+    @Override
     public JpaRepository<UserEntity, Long> getRepository() {
         return repository;
     }
