@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'users')}"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<body>
+
+
+<form>
+    <h1 th:text="Requests" class="text-center"></h1>
+    <table id="users" class="table table-striped">
+        <thead>
+        <th th:text="Number">
+        </th>
+        <th th:text="Amenity">
+        </th>
+        <th th:text="Firstname">
+        </th>
+        <th th:text="Middlename">
+        </th>
+        <th th:text="Lastname">
+        </th>
+        <th th:text="Phone">
+        </th>
+        <th th:text="Email">
+        </th>
+        <th th:text="Acceptation">
+
+        </th>
+        </thead>
+
+        <tbody>
+        <div th:each="requestDto, requestStat : ${selections}">
+            <tr>
+                <td th:text="${requestStat.count}"></td>
+                <td th:text="${requestDto.amenityDto.description}"></td>
+                <td th:text="${requestDto.userDto.firstName}"></td>
+                <td th:text="${requestDto.userDto.middleName}"></td>
+                <td th:text="${requestDto.userDto.lastName}"></td>
+                <td th:text="${requestDto.userDto.phoneNumber}"></td>
+                <td th:text="${requestDto.userDto.email}"></td>
+                <td >
+                    <a class="btn btn-success" th:text="Accepted"
+                       th:href="@{/amenities/__${amenityDto.id}__/requests/__${requestDto.id}__/delete}"></a>
+                </td>
+            </tr>
+        </div>
+        </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary" th:href="@{/amenities/find}" th:text="Back"></a>
+</form>
+
+</body>
+</html>

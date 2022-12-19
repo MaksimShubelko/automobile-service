@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body}, 'home')}"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Welcome</h2>
+
+<div class="row" sec:authorize="isAuthenticated()">
+    <div class="col-md-12">
+        <p th:text="'Welcome: ' + ${#authentication?.principal?.username}">User</p>
+        <p><a th:href="@{/logout}">Logout</a></p>
+    </div>
+</div>
+
+<div class="row" sec:authorize="!isAuthenticated()">
+    <div class="col-md-4">
+        <div th:if="${param.error}" class="error">Invalid Username or Password</div>
+        <div th:if="${param.logout}" class="success">You Have Logged out</div>
+        <form class="container" th:action="@{/login}" method="post">
+            <div class="content-center justify-center">
+                <div class="row">
+                    <label class="col-md-1" for="username">Username:</label>
+                    <input class="col-md-2" type="text" id="username" name="username" autofocus="true" autocomplete="off">
+                </div>
+                <div class="row">
+                    <label class="col-md-1" for="password">Password:</label>
+                    <input class="col-md-2" type="password" id="password" name="password" autofocus="true" autocomplete="off">
+                </div>
+                <div class="row">
+                    <input type="submit" value="Log In">
+
+                    <a th:href="@{/users/signIn}">Sign In</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

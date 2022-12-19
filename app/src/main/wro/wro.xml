@@ -1,0 +1,14 @@
+<groups xmlns="http://www.isdc.ro/wro">
+    <group name="spring-courses">
+        <css>classpath:META-INF/resources/webjars/bootstrap/3.3.6/less/bootstrap.less</css>
+        <css>/spring-courses.less</css>
+    </group>
+    <group name="bootstrap">
+        <css>/bootstrap-3.2.0/less/bootstrap.less</css>
+        <js>/bootstrap-3.2.0/js/*.js</js>
+    </group>
+
+    <group name="bootstrap-theme">
+        <css>/bootstrap-3.2.0/less/theme.less</css>
+    </group>
+</groups>

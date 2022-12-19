@@ -1,0 +1,29 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout (~{::body},'users')}"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:object="${userDto}" th:action="@{/users/signIn}" method="post" class="form-horizontal needs-validation"
+      novalidate id="search-owner-form">
+    <div class="col-md-12">
+        <h1 class="text-center">Registration</h1>
+        <input name="login" th:replace="~{fragments/inputField :: input ('Login', 'login', 'text')}"/>
+        <input type="password" th:replace="~{fragments/inputField :: input ('Password', 'password', 'password')}"/>
+        <input type="password"
+               th:replace="~{fragments/inputField :: input ('Confirm password', 'confirmPassword', 'confirmPassword')}"/>
+        <input th:replace="~{fragments/inputField :: input ('First name', 'firstName', 'text')}"/>
+        <input th:replace="~{fragments/inputField :: input ('Middle name', 'middleName', 'text')}"/>
+        <input th:replace="~{fragments/inputField :: input ('Last name', 'lastName', 'text')}"/>
+        <input th:replace="~{fragments/inputField :: input ('Email', 'email', 'text')}"/>
+        <input th:replace="~{fragments/inputField :: input ('Phone', 'phoneNumber', 'text')}"/>
+    </div>
+    <button id="create" type="submit" class="btn btn-default">
+        Sign In
+    </button>
+</form>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'users')}"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<body>
+
+
+<form>
+    <table  class="table table-striped">
+        <thead>
+        <th th:text="Amenities" class="text-center"></th>
+        </thead>
+
+        <tbody>
+
+<tr th:each="amenityDto : ${selections}">
+    <td class="text-uppercase text-success text" th:text="${amenityDto.description}">
+    </td>
+    <td sec:authorize="hasAuthority('CLIENT')">
+        <a class="btn btn-primary" th:href="@{/amenities/__${amenityDto.id}__/requests/create}" th:text="Order"></a>
+    </td>
+    <td sec:authorize="hasAuthority('ADMINISTRATOR')">
+        <a th:href="@{/amenities/__${amenityDto.id}__/edit}" th:text="Edit"></a>
+    </td>
+    <td sec:authorize="hasAuthority('ADMINISTRATOR')">
+        <a th:href="@{/amenities/__${amenityDto.id}__/delete}" th:text="Delete"></a>
+    </td>
+    <td sec:authorize="hasAuthority('ADMINISTRATOR')">
+        <a th:href="@{/amenities/__${amenityDto.id}__/requests/find}" th:text="Requests"></a>
+    </td>
+</tr>
+        </tbody>
+    </table>
+
+    <a sec:authorize="hasAuthority('ADMINISTRATOR')" class="btn btn-primary" th:href="@{/amenities/create}"
+       th:text="Add"></a>
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'users')}"
+>
+
+<body>
+
+
+<form th:object="${amenityDto}" method="post" th:action="@{/amenities/__${amenityDto.id}__/edit}" class="form-horizontal needs-validation"
+      novalidate id="search-owner-form">
+  <input name="description" th:replace="~{fragments/inputField :: input ('Amenity', 'description', 'text')}"/>
+  <button type="submit" class="btn btn-primary" th:text="Save"></button>
+</form>
+
+</body>
+</html>
