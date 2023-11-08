@@ -58,16 +58,7 @@
                     <target>16</target>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.liquibase</groupId>
-                <artifactId>liquibase-maven-plugin</artifactId>
-                <configuration>
-                    <outputChangeLogFile>changelog.xml</outputChangeLogFile>
-                    <url>jdbc:h2:~/service</url>
-                    <username>dev_adm</username>
-                    <password>dev_pwd</password>
-                </configuration>
-            </plugin>
+
 
                 <plugin>
                     <groupId>org.springframework.boot</groupId>
@@ -123,10 +114,6 @@
             <artifactId>services</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.liquibase</groupId>
-            <artifactId>liquibase-core</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

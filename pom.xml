@@ -31,7 +31,7 @@
         <mapstruct.version>1.4.2.Final</mapstruct.version>
         <logging.version>1.2</logging.version>
         <aspectj-version>1.9.9.1</aspectj-version>
-        <wro4j-version>1.10.1</wro4j-version>
+        <wro4j-version>1.6.3</wro4j-version>
         <webjars-jquery.version>2.2.4</webjars-jquery.version>
         <webjars-jquery-ui.version>1.11.4</webjars-jquery-ui.version>
         <webjars-bootstrap.version>3.3.6</webjars-bootstrap.version>

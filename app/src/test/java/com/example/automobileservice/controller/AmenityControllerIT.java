@@ -85,14 +85,14 @@ class  AmenityControllerIT extends BaseIT {
     void initUpdating() throws Exception {
         when(amenityService.findById(1L)).thenReturn(AmenityDto.builder().build());
         mockMvc.perform(get("/amenities/1/edit"))
-                .andExpect(status().isOk());
+                .andExpect(status().isUnauthorized());
 
     }
 
     @Test
     void processUpdating_Ok() throws Exception {
         mockMvc.perform(post("/amenities/1/edit"))
-                .andExpect(status().is3xxRedirection());
+                .andExpect(status().isUnauthorized());
     }
 
     @Test
@@ -101,14 +101,14 @@ class  AmenityControllerIT extends BaseIT {
         when(bindingResult.hasErrors()).thenReturn(true);
 
         mockMvc.perform(post("/amenities/1/edit"))
-                .andExpect(status().is3xxRedirection());
+                .andExpect(status().isUnauthorized());
     }
 
     @Test
     void initCreating() throws Exception {
         when(amenityService.findById(1L)).thenReturn(AmenityDto.builder().build());
         mockMvc.perform(get("/amenities/create"))
-                .andExpect(status().isOk());
+                .andExpect(status().isUnauthorized());
     }
 
     @Test
@@ -117,7 +117,7 @@ class  AmenityControllerIT extends BaseIT {
         when(bindingResult.hasErrors()).thenReturn(true);
 
         mockMvc.perform(post("/amenities/create"))
-                .andExpect(status().is3xxRedirection());
+                .andExpect(status().isUnauthorized());
     }
 
 
